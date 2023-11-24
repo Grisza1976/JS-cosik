@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
 });
 
 function dodaj(dane, tab) {
-    let query = `INSERT INTO ${tab} SET ?`;
+    let query = 'INSERT INTO ${tab} SET ?';
   
     connection.query(query, dane, function(err, results) {
       if (err) {
@@ -21,10 +21,10 @@ function dodaj(dane, tab) {
   }
 
   function aktualizuj(dane, warunek, tab) {
-    let query = `UPDATE ${tab} SET ?`;
+    let query = 'UPDATE ${tab} SET ?';
   
     if (warunek) {
-      query += ` WHERE ${warunek}`;
+      query += 'WHERE ${warunek}';
     }
   
     connection.query(query, dane, function(err, results) {
@@ -36,9 +36,9 @@ function dodaj(dane, tab) {
   }
 
 function usun(parametr, tab) {
-    let query = `DELETE FROM ${tab}`;  
+    let query = 'DELETE FROM ${tab}';  
     if (parametr) {
-      query += ` ${parametr}`;
+      query += '${parametr}';
     }
     connection.query(query, function(err, results) {
       if (err) {
@@ -51,10 +51,10 @@ function usun(parametr, tab) {
 
 
 function pobierz(parametr, tab) {
-    let query = `SELECT * FROM ${tab}`;
+    let query = 'SELECT * FROM ${tab}';
   
     if (parametr) {
-      query += ` ${parametr}`;
+      query += '${parametr}';
     }
   
     connection.query(query, function(err, results, fields) {
